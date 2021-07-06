@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Licence managment system</title>
+  </head>
+  <body id="app">
+    <h1>Licences</h1>
+    <button @click="fetchData">fetch data</button>
+    <div class="licences_container" v-for="licence in licences">
+
+      <div class="licence_card">
+        <div class="card_body">
+          <div class="data">
+            <p><strong>key :</strong> {{licence.key}}</p>
+            <p><strong>Expiry Date :</strong> {{licence.expiry_date}}</p>
+            <p><strong>Ip address :</strong> {{licence.ip}}</p>
+          </div>
+          <div class="licence_status">
+              <p v-bind:class="{valid:isvalid}">{{licence.status}}</p>
+          </div>
+        </div>
+        <div class="licence_card_buttons">
+            <div class="edit"><i class="fas fa-edit"></i></div>
+            <div class="delete">
+                <i class="fas fa-trash-alt"></i></div>
+        </div>
+      </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://kit.fontawesome.com/fcdba61766.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/main.js"></script>
+
+  </body>
+</html>
